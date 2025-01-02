@@ -1,69 +1,23 @@
 $gray: gray;
 $lightgray: lightgray;
-$rajah: #f7ce76;
-$pastel-mint: #cef0cc;
-$black: black;
-$white: white;
-$lavender: lavender;
-
-/*
-  Font Tokenization.
-  When these Materials are used during auto enrolment, the account will have valid values configured for replacement
-  via tokens.  Two sets of css are generated, the first without tokens for display via these Materials for the purposes
-  of development, the second set with tokens is generated for production via the Platform which will replace the tokens
-  with values configured against the account.
-
-  These are the font tokens.
-
-  FONT_[ TITLE_PRIMARY | TITLE_SECONDARY | TEXT | EXHIBIT ]_[ FAMILY | SIZE | WEIGHT | STYLE | DECORATION]
-
-  So for example FONT_TITLE_PRIMARY_FAMILY
-
-  The sass-preprocessor script takes care of this, and outputs to the tmp directory, and sass then independently compiles each set.
-
-  How tokenization works:
-    There are three tokens that separate three kinds of text.   Normal text included in both css, www text included only
-    in www, and materials text, included only in production css.
-    The tokens are wrapped in css comment delimiters, as in /*  and * / (without the space).
-    / *£IF* / - marks the end of normal text and the start of www only text.
-    / *£ELSE - marks the end of www tokens as the start of production tokens.
-    £END* / - marks the end of production tokens are the start of normal tokens.
- */
-
-$font-title-primary: /*£IF*/
-        Arial, Helvetica Neue, Helvetica, sans-serif/*£ELSE FONT_TITLE_PRIMARY_FAMILY £END*/
-;
-$font-title-secondary: /*£IF*/
-        Arial Narrow, Arial, sans-serif/*£ELSE FONT_TITLE_SECONDARY_FAMILY £END*/
-;
-$font-text: /*£IF*/
-        TimesNewRoman, Times New Roman, Times, Baskerville, Georgia, serif/*£ELSE FONT_TEXT_FAMILY £END*/
-;
-$font-label: /*£IF*/
-        Arial, Helvetica Neue, Helvetica, LiberationSans, sans-serif/*£ELSE FONT_LABEL_FAMILY £END*/
-;
-$font-exhibit: /*£IF*/
-        Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif/*£ELSE FONT_EXHIBIT_FAMILY £END*/
-;
-
-
-/*
-  Color Tokenization.
-
-  Color tokenization is handled differently to fonts because bootstrap runs a number of functions on the colors to
-  produce lighter and darker shades.  So preprocessing the tokens will not work as the functions error trying to
-  calculate on tokens.  So here we find the colors in  the output css file and replace with tokens.  The obvious
-  downside is that we have mismatched lighter and darker shades, and problems when the colors are duplicated.
-  This is the cheap option.  The alternative is to remove all color calculations from our bootstrap version...,
-  which we may end up doing.  You have to keep color-tokenization.js up to date with any color changes you make
-  to the following.  This is definitely a hack, but only applies to auto enrolment.  When materials are customized,
-  all of this can be dropped.
- */
 $blue: #81b1cc;
 $pastel-orange: #ff964f;
 $pastel-red: #ff6961;
 $opal: #a9c8c0;
+$rajah: #f7ce76;
+$pastel-mint: #cef0cc;
 $green: #c1e1c1;
+$black: black;
+$white: white;
+$lavender: lavender;
+
+$font-title-primary: LtdComicSans, "Comic Sans MS", "Comic Sans", cursive;
+$font-title-secondary: LtdComicSans, "Comic Sans MS", "Comic Sans", cursive;
+$font-text-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-text-secondary: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva, Verdana, sans-serif;
+$font-exhibit: Georgia, Times, Times New Roman, serif;
+$font-primary: Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;
+$font-secondary: Impact, Haettenschweiler, Franklin Gothic Bold, Charcoal, Helvetica Inserat, Bitstream Vera Sans Bold, Arial Black, sans serif;
 
 $alternatingEven: $opal;
 $alternatingOdd: $green;
@@ -128,11 +82,89 @@ $enable-shadows: true;
 @import "node_modules/bootstrap/scss/utilities";
 @import "node_modules/bootstrap/scss/print";
 
-//@font-face {
-//  font-family: BrushScriptStd;
-//  src: url("../public/fonts/BrushScriptStd.otf") format("opentype"), url("../public/fonts/BRUSHSCI.TTF") format("truetype");
-//}
+@each $color, $value in $theme-colors {
+  .bg-#{$color} {
+    background: $value;
+    color: color-yiq($value);
+  }
+}
 
+body {
+  font-family: $font-text-primary;
+
+  > .container {
+    min-height: 600px;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+td {
+  vertical-align: middle;
+}
+
+.btn-link {
+  outline: none;
+  box-shadow: none !important;
+}
+
+.form-group {
+  margin-bottom: 1em;
+}
+
+.form-control-md {
+  min-height: calc(1em + 1rem + 2px);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.375rem;
+}
+
+@font-face {
+  font-family: LtdComicSans;
+  src: url("../fonts/Ldfcomicsans-jj7l.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: LtdComicSans;
+  src: url("../fonts/Ldfcomicsansbold-zgma.ttf") format("truetype");
+  font-weight: bold;
+}
+
+
+@font-face {
+  font-family: BrushScriptStd;
+  src: url("../public/fonts/BrushScriptStd.otf") format("opentype"), url("../public/fonts/BRUSHSCI.TTF") format("truetype");
+}
+
+@media (max-width: 375.98px) {
+  .hide-xs-column {
+    display: none !important
+  }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-down($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .hide#{$infix}-column {
+      display: none !important;
+    }
+  }
+}
+
+.truncated-content {
+  display: flex;
+  color: var(--danger);
+  justify-content: center;
+  align-items: center;
+}
+
+//This class is used by the sizing attribute pane.
+.hide-column {
+  display: none !important;
+}
 
 // Boostrap Overrides - changes to default bootstrap styling. Likely to change if different bootstrap skins are in affect.
 @import "bootstrap-skin";
@@ -143,7 +175,6 @@ $enable-shadows: true;
 // Control  - these are produced by the platform and expect certain affects.
 @import "control";
 
-// Widgets - styling for individual widgets.
 @import "accordion-widget";
 @import "back-link-widget";
 @import "badge-widget";
