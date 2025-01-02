@@ -25,6 +25,7 @@
 
     .title-text {
       display: flex;
+      font-family: LtdComicSans, "Comic Sans MS", "Comic Sans", cursive;
       font-size: 3.5rem;
       margin-bottom: 0.5rem;
       line-height: 1.2;
@@ -55,7 +56,7 @@
     background-color: $headerBackground;
 
     .title-text {
-      font-family: $font-title-primary;
+      font-family: LtdComicSans, "Comic Sans MS", "Comic Sans", cursive;
       font-size: 2.5rem;
       display: flex;
       flex-direction: column;
