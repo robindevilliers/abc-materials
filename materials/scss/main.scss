@@ -1,6 +1,6 @@
 $gray: gray;
 $lightgray: lightgray;
-$blue: #81b1cc;
+
 $pastel-orange: #ff964f;
 $pastel-red: #ff6961;
 $opal: #a9c8c0;
@@ -10,6 +10,12 @@ $green: #c1e1c1;
 $black: black;
 $white: white;
 $lavender: lavender;
+
+
+$blue: #4890f7;
+$orange: #ee8434;
+$indian_red: #c95d63;
+$glaucous: #717ec3;
 
 $font-title-primary: LtdComicSans, "Comic Sans MS", "Comic Sans", cursive;
 $font-title-secondary: LtdComicSans, "Comic Sans MS", "Comic Sans", cursive;
@@ -26,10 +32,10 @@ $headerBackground: $lavender;
 $theme-colors: (
         "default": $gray,
         "primary": $blue,
-        "success" : $green,
-        "warning" : $pastel-orange,
+        "success" : $glaucous,
+        "warning" : $orange,
         "info" : $opal,
-        "danger": $pastel-red,
+        "danger": $indian_red,
         "muted": $lightgray,
         "black": black,
         "white": white,
