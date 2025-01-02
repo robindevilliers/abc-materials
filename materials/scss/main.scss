@@ -11,8 +11,8 @@ $black: black;
 $white: white;
 $lavender: lavender;
 
-$font-title-primary: Georgia, cursive, serif;
-$font-title-secondary: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
+$font-title-primary: LtdComicSans, "Comic Sans MS", "Comic Sans", cursive;
+$font-title-secondary: LtdComicSans, "Comic Sans MS", "Comic Sans", cursive;
 $font-text-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 $font-text-secondary: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva, Verdana, sans-serif;
 $font-exhibit: Georgia, Times, Times New Roman, serif;
@@ -120,6 +120,18 @@ td {
   font-size: 1rem;
   border-radius: 0.375rem;
 }
+
+@font-face {
+  font-family: LtdComicSans;
+  src: url("../fonts/Ldfcomicsans-jj7l.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: LtdComicSans;
+  src: url("../fonts/Ldfcomicsansbold-zgma.ttf") format("truetype");
+  font-weight: bold;
+}
+
 
 @font-face {
   font-family: BrushScriptStd;
