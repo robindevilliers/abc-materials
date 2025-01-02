@@ -50,7 +50,7 @@
     <#if type == "DATE">
         <label class="form-label ${textualClasses}" style="${textualStyles}" for="${id}">${content}</label>
         <div class="input-group">
-            <input id="${id}" class="form-control ${sizeCls} validate" type="text" maxlength="10"
+            <input id="${id}" class="form-control ${sizeCls} validate" type="date" maxlength="10"
                     name="${name}" value="${value!}" <#if disabled??>disabled</#if>
                     placeholder="yyyy-MM-dd"/>
         </div>
@@ -61,7 +61,7 @@
     <#if type == "DATETIME">
         <label class="form-label ${textualClasses}" style="${textualStyles}" for="${id}">${content}</label>
         <div class="input-group">
-            <input id="${id}" class="form-control ${sizeCls} validate" type="text" maxlength="16"
+            <input id="${id}" class="form-control ${sizeCls} validate" type="datetime-local" maxlength="16"
                     name="${name}" value="${value!}" <#if disabled??>disabled</#if>
                     placeholder="yyyy-MM-dd HH:mm"/>
         </div>
