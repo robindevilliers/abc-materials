@@ -5,7 +5,7 @@
     <div v="v1" orientation="ROW">
         <div orientation="COLUMN" alignItems="CENTER" justifyContent="SPACE_BETWEEN" margin="0em 1em" padding="1em"
             borderRadius="1em" v="v1">
-            <image src="logo.svg" alt="Logo" title="Logo" height="320px" width="320px" v="v1"/>
+            <image src="logo.jpg" alt="Logo" title="Logo" height="200px" width="426px" v="v1"/>
             <div orientation="COLUMN" alignItems="CENTER" justifyContent="SPACE_BETWEEN" margin="1em 0em" padding="1em"
                 borderRadius="1em" v="v1">
                 <title size="LARGE" v="v1">
