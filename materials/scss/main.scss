@@ -1,59 +1,18 @@
 @import "functions";
 
-
-$enable-gradients: false; //turned off for easier tokenization.
-$enable-shadows: false; //turned off for easier tokenization.
-
 $gray: gray;
 $lavender: lavender;
 
-:root {
-  --gray-light: lightgray;
-  --white: white;
-  --black: black;
+@font-face {
+  font-family: "LdfComicSans";
+  src: url("/public/fonts/Ldfcomicsans-jj7l.ttf") format("truetype");
 }
 
-/*
-  TOKENIZATION
-  -------------
-  These scss files produce css with tokens for the Maximillian platform to replace during page serving.
-  This is so that Maximillian can do color and font overrides to support auto enrolment.
-
-  If you do not require auto-enrolment, or don't wish to support overrides, remove this and remove the customize.js script.
- */
-
-$font-title-primary: FONT_TITLE_PRIMARY_FAMILY;
-$font-title-secondary: FONT_TITLE_SECONDARY_FAMILY;
-$font-text: FONT_TEXT_FAMILY;
-$font-label: FONT_LABEL_FAMILY;
-$font-exhibit: FONT_EXHIBIT_FAMILY;
-
-$theme-colors: (
-        "default": COLOR_DEFAULT,
-        "primary": COLOR_PRIMARY,
-        "secondary": COLOR_SECONDARY,
-        "success" : COLOR_SUCCESS,
-        "warning" : COLOR_WARNING,
-        "info" : COLOR_INFO,
-        "danger": COLOR_DANGER,
-        "muted": COLOR_MUTED,
-        "black": COLOR_BLACK,
-        "white": COLOR_WHITE,
-);
-
-/*
-  The overrides module substitutes color functions so that color tokenization can take place. See tokenize.js, and customize.js
- */
-@import "overrides";
-
-$alternatingEven: lighten(theme-color("info"), 10%);
-$alternatingOdd: lighten(theme-color("success"), 10%);
-$headerBackground: lighten(theme-color("muted"), 10%);
-
-//Required
-@import "node_modules/bootstrap/scss/variables"; // Required
-
-// END OF TOKENIZATION
+@font-face {
+  font-family: "LdfComicSans";
+  src: url("/public/fonts/Ldfcomicsansbold-zgma.ttf") format("truetype");
+  font-weight: bold;
+}
 
 @font-face {
   font-family: "Liberation Mono";
@@ -127,6 +86,44 @@ $headerBackground: lighten(theme-color("muted"), 10%);
   font-weight: bold;
 }
 
+$font-title-primary: LdfComicSans, sans-serif;
+$font-title-secondary: LdfComicSans, sans-serif;
+$font-text: Liberation Sans, sans-serif;
+$font-label: Liberation Sans, sans-serif;
+$font-exhibit: Liberation Mono, monospace;
+
+$pastel-orange: #ff964f;
+$pastel-red: #ff6961;
+$opal: #a9c8c0;
+$green: #c1e1c1;
+
+$alternatingEven: $opal;
+$alternatingOdd: $green;
+$headerBackground: white;
+
+$theme-colors: (
+        "default": gray,
+        "primary": #0096FF,
+        "secondary": #6c757d,
+        "success" : #28a745,
+        "warning" : #ffc107,
+        "info" : #17a2b8,
+        "danger": #dc3545,
+        "muted": lightgray,
+        "black": black,
+        "white": white,
+);
+
+:root {
+  --gray-light: lightgray;
+  --white: white;
+  --black: black;
+}
+
+$enable-gradients: true;
+$enable-shadows: true;
+
+@import "node_modules/bootstrap/scss/variables"; // Required
 @import "node_modules/bootstrap/scss/mixins"; // Required
 @import "node_modules/bootstrap/scss/root"; // Required
 @import "node_modules/bootstrap/scss/reboot"; // Required
