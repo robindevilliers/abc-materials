@@ -3,7 +3,7 @@
     description="Style Guide Main Page" defnVersion="v1" orientation="COLUMN">
     <jumbotron orientation="COLUMN" v="v1">
         <div orientation="ROW" v="v1">
-            <image src="logo.svg" title="Logo" height="210px" width="210px" borderRadius="1em"
+            <image src="logo.jpg" title="Logo" height="200px" width="426px" borderRadius="1em"
                 padding="0.5em" margin="0em 2em 1em" v="v1" background="white"/>
             <div orientation="COLUMN" v="v1">
                 <title size="LARGE" fontFlavour="WHITE" v="v1">

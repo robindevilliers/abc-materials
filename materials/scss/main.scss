@@ -1,6 +1,17 @@
 @import "node_modules/bootstrap/scss/functions"; // Required
 
 @font-face {
+  font-family: "LdfComicSans";
+  src: url("/public/fonts/Ldfcomicsans-jj7l.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "LdfComicSans";
+  src: url("/public/fonts/Ldfcomicsansbold-zgma.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
   font-family: "Liberation Mono";
   src: url("/public/fonts/LiberationMono-Regular.ttf") format("truetype");
 }
@@ -72,67 +83,11 @@
   font-weight: bold;
 }
 
-$blue: #81b1cc;
-$gray: gray;
-$lightgray: lightgray;
-$rajah: #f7ce76;
-$pastel-mint: #cef0cc;
-$black: black;
-$white: white;
-$lavender: lavender;
-
-/*
-  Font Tokenization.
-  When these Materials are used during auto enrolment, the account will have valid values configured for replacement
-  via tokens.  Two sets of css are generated, the first without tokens for display via these Materials for the purposes
-  of development, the second set with tokens is generated for production via the Platform which will replace the tokens
-  with values configured against the account.
-
-  These are the font tokens.
-
-  FONT_[ TITLE_PRIMARY | TITLE_SECONDARY | TEXT | EXHIBIT ]_[ FAMILY | SIZE | WEIGHT | STYLE | DECORATION]
-
-  So for example FONT_TITLE_PRIMARY_FAMILY
-
-  The sass-preprocessor script takes care of this, and outputs to the tmp directory, and sass then independently compiles each set.
-
-  How tokenization works:
-    There are three tokens that separate three kinds of text.   Normal text included in both css, www text included only
-    in www, and materials text, included only in production css.
-    The tokens are wrapped in css comment delimiters, as in /*  and * / (without the space).
-    / *£IF* / - marks the end of normal text and the start of www only text.
-    / *£ELSE - marks the end of www tokens as the start of production tokens.
-    £END* / - marks the end of production tokens are the start of normal tokens.
- */
-
-$font-title-primary: /*£IF*/
-        Liberation Sans, sans-serif/*£ELSE FONT_TITLE_PRIMARY_FAMILY £END*/
-;
-$font-title-secondary: /*£IF*/
-        Liberation Sans, sans-serif/*£ELSE FONT_TITLE_SECONDARY_FAMILY £END*/
-;
-$font-text: /*£IF*/
-        Liberation Sans, sans-serif/*£ELSE FONT_TEXT_FAMILY £END*/
-;
-$font-label: /*£IF*/
-        Liberation Sans, sans-serif/*£ELSE FONT_LABEL_FAMILY £END*/
-;
-$font-exhibit: /*£IF*/
-        Liberation Mono, monospace/*£ELSE FONT_EXHIBIT_FAMILY £END*/
-;
-
-/*
-  Color Tokenization.
-
-  Color tokenization is handled differently to fonts because bootstrap runs a number of functions on the colors to
-  produce lighter and darker shades.  So preprocessing the tokens will not work as the functions error trying to
-  calculate on tokens.  So here we find the colors in  the output css file and replace with tokens.  The obvious
-  downside is that we have mismatched lighter and darker shades, and problems when the colors are duplicated.
-  This is the cheap option.  The alternative is to remove all color calculations from our bootstrap version...,
-  which we may end up doing.  You have to keep color-tokenization.js up to date with any color changes you make
-  to the following.  This is definitely a hack, but only applies to auto enrolment.  When materials are customized,
-  all of this can be dropped.
- */
+$font-title-primary: LdfComicSans, sans-serif;
+$font-title-secondary: LdfComicSans, sans-serif;
+$font-text: Liberation Sans, sans-serif;
+$font-label: Liberation Sans, sans-serif;
+$font-exhibit: Liberation Mono, monospace;
 
 $pastel-orange: #ff964f;
 $pastel-red: #ff6961;
@@ -141,17 +96,17 @@ $green: #c1e1c1;
 
 $alternatingEven: $opal;
 $alternatingOdd: $green;
-$headerBackground: $lavender;
+$headerBackground: white;
 
 $theme-colors: (
-        "default": $gray,
-        "primary": $blue,
-        "secondary": lightgray,
-        "success" : $green,
-        "warning" : $pastel-orange,
-        "info" : $opal,
-        "danger": $pastel-red,
-        "muted": $lightgray,
+        "default": gray,
+        "primary": #0096FF,
+        "secondary": #6c757d,
+        "success" : #28a745,
+        "warning" : #ffc107,
+        "info" : #17a2b8,
+        "danger": #dc3545,
+        "muted": lightgray,
         "black": black,
         "white": white,
 );
