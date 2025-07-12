@@ -1,27 +1,9 @@
 [
   {
-    "src": "logo.svg",
-    "title": "Example Logo SVG (320 x 320)",
-    "width": 320,
-    "height": 320
-  },
-  {
-    "src": "logo1200x630.svg",
-    "title": "Example Logo SVG (1200 x 630)",
-    "width": 1200,
-    "height": 630
-  },
-  {
-    "src": "logo32x32.png",
-    "title": "Example Logo PNG (32 x 32)",
-    "width": 32,
-    "height": 32
-  },
-  {
-    "src": "logo180x180.png",
-    "title": "Example Logo PNG (180 x 180)",
-    "width": 180,
-    "height": 180
+    "src": "logo.jpg",
+    "title": "Logo",
+    "width": 736,
+    "height": 345
   },
   {
     "src": "panel-1.jpg",

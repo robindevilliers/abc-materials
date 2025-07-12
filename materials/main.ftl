@@ -13,7 +13,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MATERIALS_PAGE_TITLE_TOKEN <#if title?? && title?has_content >:</#if> ${title}</title>
+    <title>ABC Accountancy <#if title?? && title?has_content >:</#if> ${title}</title>
     <#if noindex>
         <meta name="robots" content="noindex">
     </#if>
@@ -65,7 +65,10 @@
     <header class="minor-title-panel">
         <div class="brand-outer">
             <div class="brand-inner">
-                <div class="text-primary title-text">MATERIALS_PAGE_TITLE_TOKEN</div>
+                <div class="image-panel">
+                    <img src="/public/img/logo.jpg" alt="title">
+                </div>
+                <div class="text-primary title-text">ABC Accountancy</div>
             </div>
         </div>
 

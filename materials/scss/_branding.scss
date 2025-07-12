@@ -25,6 +25,7 @@
 
     .title-text {
       display: flex;
+      font-family: LdfComicSans, cursive;
       font-size: 3.5rem;
       margin-bottom: 0.5rem;
       line-height: 1.2;
@@ -41,8 +42,8 @@
 }
 
 .brand-outer {
-  border: 5px theme-color("primary") solid;
-  background: theme-color("primary");
+  border: none;
+  background: transparent;
   border-radius: 25px;
   padding: 5px;
 
@@ -52,10 +53,10 @@
     justify-content: space-between;
     align-items: center;
     padding: 0.5em 1em;
-    background-color: $headerBackground;
+    background-color: transparent;
 
     .title-text {
-      font-family: $font-title-primary;
+      font-family: LdfComicSans, cursive;
       font-size: 2.5rem;
       display: flex;
       flex-direction: column;
